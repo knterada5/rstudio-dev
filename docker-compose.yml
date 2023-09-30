@@ -1,0 +1,23 @@
+services:
+  r-studio:
+    container_name: r-studio
+    build: 
+      context: .
+      args:
+        - GID=${GID}
+        - UID=${UID}
+    image: r-studio
+    environment:
+      - DISABLE_AUTH=true
+      - USERID=${UID}
+      - GROUPID=${GID}
+      - PASSWORD=pswd
+    ports:
+      - "8787:8787"
+    volumes:
+      - .:/home/rstudio/workspace
+      - renv:/home/rstudio/.cache/R/renv
+volumes:
+  renv:
+    external: true
+ 

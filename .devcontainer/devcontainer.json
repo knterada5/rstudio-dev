@@ -1,0 +1,24 @@
+{
+    "name": "Rstudio for VSCode",
+
+    "dockerComposeFile": [
+        "../docker-compose.yml"
+    ],
+
+    "service": "r-studio",
+
+    "workspaceFolder": "/home/rstudio/workspace",
+
+    "postCreateCommand": "R -e \"renv::install('languageserver')\"",
+
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "REditorSupport.r",
+                "mhutchie.git-graph",
+                "donjayamanne.githistory",
+                "eamodio.gitlens"
+            ]
+        }
+    }
+}
